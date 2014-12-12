@@ -5,14 +5,14 @@ package logic.show;
  * @see logic.show.Show
  */
 public class Movie extends Show {
-    //TODO fields
+    private int duration;
 
     /**
      * Constructs an empty Movie object.
      * Initializes the structure in witch the actors are stored.
      */
     public Movie(){
-        //TODO code
+        super();
     }
 
     /**
@@ -24,14 +24,24 @@ public class Movie extends Show {
      * @param duration Movie duration.
      */
     public Movie(String name, String description, String director, int duration){
-        //TODO code
+        super(name, description, director);
+        this.duration = duration;
+    }
+
+    /**
+     * Copy constructor for Moive objects.
+     * @param movie The movie to be copied.
+     */
+    public Movie(Movie movie){
+        super(movie);
+        this.duration = movie.duration;
     }
 
     /**
      * @param duration Movie duration to set.
      */
     public void setDuration(int duration){
-        //TODO code
+        this.duration = duration;
     }
 
 

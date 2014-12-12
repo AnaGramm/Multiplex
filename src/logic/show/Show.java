@@ -36,6 +36,20 @@ public class Show {
     }
 
     /**
+     * Copy constructor for Show objects.
+     * @param show The show to be copied.
+     */
+    public Show(Show show){
+        this.name = show.name;
+        this.director = show.director;
+        this.description = show.description;
+        this.actors = new ArrayList<>();
+        for (String actor : show.actors) {
+            this.actors.add(actor);
+        }
+    }
+
+    /**
      * @param name Name to be set.
      */
     public void setName(String name){
