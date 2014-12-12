@@ -1,5 +1,8 @@
 package logic.show;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The main class of the shows that take place in the multiplex.
  * @see Movie
@@ -7,12 +10,15 @@ package logic.show;
  * @author gramanas
  */
 public class Show {
-    //TODO fields
+    private String name;
+    private String description;
+    private String director;
+    private List<String> actors;
 
     /**Constructs an empty show object. Initializes the structure in witch the actors are stored.
      */
     public Show(){
-        //TODO code
+        actors = new ArrayList<>();
     }
 
     /**
@@ -23,28 +29,31 @@ public class Show {
      * @param director Director
      */
     public Show(String name, String description, String director){
-        //TODO code
+        this.name = name;
+        this.description = description;
+        this.director = director;
+        actors = new ArrayList<String>();
     }
 
     /**
      * @param name Name to be set.
      */
     public void setName(String name){
-        //TODO code
+        this.name = name;
     }
 
     /**
      * @param description Description to be set.
      */
     public void setDescription(String description){
-        //TODO code
+        this.description = description;
     }
 
     /**
      * @param director Director to be set.
      */
     public void setDirector(String director){
-        //TODO code
+        this.director = director;
     }
 
     /**
@@ -52,6 +61,6 @@ public class Show {
      * @param actor Actor's name.
      */
     public void addActor(String actor){
-        //TODO code
+        actors.add(actor);
     }
 }
