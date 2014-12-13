@@ -40,7 +40,7 @@ public class Show {
      * @param show The show to be copied.
      */
     public Show(Show show){
-        this.name = show.name;
+        this.name = show.getName();
         this.director = show.director;
         this.description = show.description;
         this.actors = new ArrayList<>();
@@ -76,5 +76,9 @@ public class Show {
      */
     public void addActor(String actor){
         actors.add(actor);
+    }
+
+    public String getName() {
+        return name;
     }
 }

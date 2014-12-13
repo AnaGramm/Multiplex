@@ -1,19 +1,22 @@
 package logic.show;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * This class represents time and it packs the methods that control it
  * depending on the needs of the admin.
  * @author gramanas
  */
 public class Time {
-    //TODO fields
+    private int hour;
+    private int min;
 
     /**
      * Constructs an empty Time object.
      */
-    public Time(){
-        //TODO code
-    }
+    public Time(){}
 
     /**
      * Constructs an object Time with specific time and minutes.
@@ -21,7 +24,8 @@ public class Time {
      * @param min Minutes.
      */
     public Time(int hour, int min){
-        //TODO code
+        this.hour = hour;
+        this.min = min;
     }
 
     /**
@@ -30,15 +34,19 @@ public class Time {
      * @param min Minutes.
      */
     public void setTime(int hour, int min){
-        //TODO code
+        this.hour = hour;
+        this.min = min;
     }
 
     /**
      * @return A Time object with the current time.
      */
-    public Time getCurrentTime(){
-        //TODO code
-        return null;
+    public static Time getCurrentTime(){
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        Calendar cal = Calendar.getInstance();
+        String tmp =  dateFormat.format(cal.getTime()); //16:23
+        String[] parts = tmp.split(":");
+        return new Time(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
     }
 
     /**
@@ -47,7 +55,11 @@ public class Time {
      */
     @Override
     public String toString(){
-        //TODO code
-        return null; //not that ofc!!
+        return hour + ":" + min;
+    }
+
+    public static void main(String[] args) {
+        Time time = Time.getCurrentTime();
+        System.out.println(time);
     }
 }
