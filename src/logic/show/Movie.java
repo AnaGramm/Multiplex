@@ -29,7 +29,7 @@ public class Movie extends Show {
     }
 
     /**
-     * Copy constructor for Moive objects.
+     * Copy constructor for Movie objects.
      * @param movie The movie to be copied.
      */
     public Movie(Movie movie){
