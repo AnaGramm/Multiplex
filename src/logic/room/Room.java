@@ -1,5 +1,7 @@
 package logic.room;
 
+import logic.show.Show;
+
 import java.util.ArrayList;
 
 /**
@@ -13,6 +15,7 @@ public class Room {
     private int numOfRows;
     private int numOfSeats;
     private ArrayList<ArrayList<Seat>> seats;
+    private ArrayList<Show> shows;
 
 
     /**
@@ -27,6 +30,7 @@ public class Room {
     public Room(String name){
         this.name = name;
         this.seats = new ArrayList<>();
+        this.shows = new ArrayList<>();
         numOfSeats = 0;
         numOfRows = 0;
     }
@@ -47,6 +51,7 @@ public class Room {
             }
             this.seats.add(tempList);
         }
+        this.shows = room.shows; //a reference to the original shows because there does not need to change for each room
     }
 
     /**
@@ -83,6 +88,26 @@ public class Room {
             seats.add(tmpList);
         }else {
             setSeatsInRow(rowNumber, MAX_SEATS_PER_ROW);
+        }
+    }
+
+    /**
+     * Adds a show to the array.
+     * @param show Show to be added.
+     */
+    public void addShow(Show show) {
+        shows.add(show);
+    }
+
+    /**
+     * Removes a show from the array based on the name.
+     * @param name Name of the show to be removed.
+     */
+    public void removeShow(String name){
+        for (Show show : shows) {
+            if (show.getName().equals(name)){
+                shows.remove(show);
+            }
         }
     }
 
