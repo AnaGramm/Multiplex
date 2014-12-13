@@ -18,41 +18,42 @@ import logic.show.Time;
  * @author gramanas
  */
 public class PTSD {
-    //TODO fields
+    private Room room;
+    private Time time;
+    private Show show;
+    private Day day;
 
     /**
      * Constructs an empty PTSD object.
      */
-    public PTSD(){
-        //TODO code
-    }
+    public PTSD(){}
 
     /**
      * @param room Room to be set.
      */
     public void setPlace(Room room){
-        //TODO code
+        this.room = room;
     }
 
     /**
      * @param time Time to be set.
      */
     public void setTime(Time time){
-        //TODO code
+        this.time = time;
     }
 
     /**
      * @param show Show to be set.
      */
     public void setShow(Show show){
-        //TODO code
+        this.show = show;
     }
 
     /**
      * @param day Day to be set.
      */
     public void setDay(Day day){
-        //TODO code
+        this.day = day;
     }
 
     /**

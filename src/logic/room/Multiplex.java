@@ -8,14 +8,16 @@ import java.util.ArrayList;
  * @author gramanas
  */
 public class Multiplex {
-    ArrayList<Room> rooms;
+    ArrayList<Cine> movieTheatres;
+    ArrayList<Theatre> theatres;
 
     /**
      * Constructs an empty multiplex object and initializes the
      * structure that the Room objects will be stored.
      */
     public Multiplex(){
-        rooms = new ArrayList<>();
+        movieTheatres = new ArrayList<>();
+        theatres = new ArrayList<>();
     }
 
     /**
@@ -23,21 +25,32 @@ public class Multiplex {
      * @param room Room to be added.
      */
     public void addRoom(Room room){
-        rooms.add(room);
+        if (room instanceof Cine){
+            movieTheatres.add((Cine) room);
+        }else{
+            theatres.add((Theatre) room);
+        }
     }
 
     /**
      * Deletes a room with the given name.
      * @param name Name of the room to be deleted.
      */
-    public void deleteRoom(String name){
-        for (Room room : rooms){
-            if (room.getName().equals(name)){
-                rooms.remove(room);
-                return;
+    public boolean deleteRoom(String name){
+        for (Cine movieTheatre : movieTheatres) {
+            if(movieTheatre.getName().equals(name)){
+                movieTheatres.remove(movieTheatre);
+                return true;
+            }
+        }
+        for (Theatre theatre : theatres) {
+            if(theatre.getName().equals(name)){
+                theatres.remove(theatre);
+                return true;
             }
         }
         System.err.println("Could not remove room, name does not exist.");
+        return false;
     }
 
     /**
@@ -47,12 +60,32 @@ public class Multiplex {
      * @return The room to be changed.
      */
     public Room changeRoom(String name){
-        for (Room room : rooms){
-            if (room.getName().equals(name)){
-                return room;
+        for (Cine movieTheatre : movieTheatres) {
+            if(movieTheatre.getName().equals(name)){
+                return movieTheatre;
+            }
+        }
+        for (Theatre theatre : theatres) {
+            if(theatre.getName().equals(name)){
+                return theatre;
             }
         }
         System.err.println("Could not find room, name does not exist.");
         return null;
+    }
+
+    /**
+     * Scans the rooms list and retruns a list with the names of the rooms.
+     * @return
+     */
+    public ArrayList<String> movieTheatresToList(){
+        ArrayList<String> temp = new ArrayList<>();
+        for (Cine movieTheatre : movieTheatres) {
+            temp.add(movieTheatre.getName());
+        }
+        for (Theatre theatre : theatres) {
+            temp.add(theatre.getName());
+        }
+        return temp;
     }
 }

@@ -1,7 +1,12 @@
 package logic.program;
 
 
+import logic.room.Room;
 import logic.show.Show;
+import logic.show.Time;
+
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -12,7 +17,7 @@ import logic.show.Show;
  * @author gramanas
  */
 public class Program {
-    //TODO fields
+    private Map<Day,List<Map<Room,List<Map<Show,List<Time>>>>>> program; //NOT!
 
     /**
      * Constructs an empty Program object.
