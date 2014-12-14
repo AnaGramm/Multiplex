@@ -21,14 +21,16 @@ public class Multiplex {
     }
 
     /**
-     * Adds a room in the structure.
+     * Adds a copy of a room in the structure.
      * @param room Room to be added.
      */
     public void addRoom(Room room){
         if (room instanceof Cine){
-            movieTheatres.add((Cine) room);
+            Cine tmp = new Cine((Cine) room);
+            movieTheatres.add(tmp);
         }else{
-            theatres.add((Theatre) room);
+            Theatre tmp = new Theatre((Theatre) room);
+            theatres.add(tmp);
         }
     }
 
@@ -75,14 +77,13 @@ public class Multiplex {
     }
 
     /**
-     * Scans the rooms list and retruns a list with the names of the rooms.
-     * @return
+     * Scans the rooms list and returns a list with the names of the rooms.
      */
     public ArrayList<String> movieTheatresToList(){
         ArrayList<String> temp = new ArrayList<>();
         for (Cine movieTheatre : movieTheatres) {
             temp.add(movieTheatre.getName());
-        }
+        }//TODO idk what is this!
         for (Theatre theatre : theatres) {
             temp.add(theatre.getName());
         }

@@ -30,7 +30,6 @@ public class Room {
     public Room(String name){
         this.name = name;
         this.seats = new ArrayList<>();
-        this.shows = new ArrayList<>();
         numOfSeats = 0;
         numOfRows = 0;
     }
@@ -51,7 +50,7 @@ public class Room {
             }
             this.seats.add(tempList);
         }
-        this.shows = room.shows; //a reference to the original shows because there does not need to change for each room
+        this.shows = room.shows; //a reference to the original because there is no need to change for each room
     }
 
     /**
@@ -73,7 +72,7 @@ public class Room {
     }
     
     /**
-     * This calls a private function witch creates an array list of numOfSeatsInRow Seat objets
+     * This calls a private function witch creates an array list of numOfSeatsInRow Seat objects
      * and then adds them to the ArrayList<ArrayList<Seat>> field of the Room.
      *
      * @param numOfSeatsInRow The number of seats to be added in the next row (starting from 0)
@@ -96,7 +95,6 @@ public class Room {
      * @param show Show to be added.
      */
     public void addShow(Show show) {
-        shows.add(show);
     }
 
     /**
@@ -129,5 +127,9 @@ public class Room {
      */
     public String getName() {
         return name;
+    }
+
+    public ArrayList<Show> getShows() {
+        return shows;
     }
 }

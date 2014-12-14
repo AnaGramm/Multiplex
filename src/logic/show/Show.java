@@ -1,6 +1,5 @@
 package logic.show;
 
-import logic.program.Day;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +15,13 @@ public class Show {
     private String description;
     private String director;
     private List<String> actors;
+    private List<Time> times;
 
     /**Constructs an empty show object. Initializes the structure in witch the actors are stored.
      */
     public Show(){
         actors = new ArrayList<>();
+        times = new ArrayList<>();
     }
 
     /**
@@ -35,6 +36,7 @@ public class Show {
         this.description = description;
         this.director = director;
         actors = new ArrayList<String>();
+        times = new ArrayList<>();
     }
 
     /**
@@ -49,6 +51,11 @@ public class Show {
         for (String actor : show.actors) {
             this.actors.add(actor);
         }
+        this.times = show.times; //a reference to the original because there is no need to change for each show
+    }
+
+    public void addTime(Time time){
+        times.add(time);
     }
 
     /**

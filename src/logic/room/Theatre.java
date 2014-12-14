@@ -1,5 +1,8 @@
 package logic.room;
 
+import logic.show.Show;
+import logic.show.Theatrical;
+
 /**
  * This is the basic class or the theatre rooms. The price here depends on the play that is being performed so there is
  * no price field here.
@@ -37,5 +40,15 @@ public class Theatre extends Room {
      */
     public void addBalcony(Balcony balcony){
         //TODO cide
+    }
+
+    /**
+     * Adds a copy of a show to the array.
+     * @param show Show to be added.
+     */
+    @Override
+    public void addShow(Show show){
+        Theatrical tmp = new Theatrical((Theatrical) show);
+        this.getShows().add(tmp);
     }
 }

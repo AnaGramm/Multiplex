@@ -17,6 +17,14 @@ public class Theatrical extends Show{
     }
 
     /**
+     * Copy constructor.
+     * @param theatrical Theatrical being copied.
+     */
+    public Theatrical(Theatrical theatrical) {
+        //TODO code
+    }
+
+    /**
      * Constructs a Theatrical object with the given parameters.
      * Initializes the structure in witch the actors are stored.
      * @param name Name.
@@ -25,7 +33,7 @@ public class Theatrical extends Show{
      * @param price Price.
      */
     public Theatrical(String name, String description, String director, int price){
-        //TODO code\
+        //TODO code
     }
 
     /**

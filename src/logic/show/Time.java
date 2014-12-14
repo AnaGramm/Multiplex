@@ -28,6 +28,12 @@ public class Time {
         this.min = min;
     }
 
+    public Time(String time) throws IllegalArgumentException {
+        String[] parts = time.split(":");
+        this.hour = Integer.parseInt(parts[0]);
+        this.min = Integer.parseInt(parts[1]);
+    }
+
     /**
      * Sets the time to the given parameters.
      * @param hour Hours.
@@ -50,7 +56,7 @@ public class Time {
     }
 
     /**
-     * Returns the time in a proper way to be presented wherever necessary.
+     * Returns the time in a proper way to be printed wherever necessary.
      * @return for example 13:25
      */
     @Override
@@ -58,6 +64,7 @@ public class Time {
         return hour + ":" + min;
     }
 
+    //TODO delete this!!
     public static void main(String[] args) {
         Time time = Time.getCurrentTime();
         System.out.println(time);
