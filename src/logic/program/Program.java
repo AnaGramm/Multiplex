@@ -18,13 +18,17 @@ import java.util.Map;
  */
 public class Program {
     private Map<Day,List<Map<Room,List<Map<Show,List<Time>>>>>> program; //NOT!
+    private Day[] days;
 
     /**
      * Constructs an empty Program object.
      * Initializes the arrays with the days for movies and theatricals.
      */
     public Program() {
-        //TODO code
+        days = new Day[7];
+        for (int i = 0; i < 7; i++) {
+            days[i] = new Day();
+        }
     }
 
     /**
