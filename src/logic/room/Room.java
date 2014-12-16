@@ -1,8 +1,10 @@
 package logic.room;
 
 import logic.show.Show;
+import logic.show.Time;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Every basic method for every kind of room lies in here.
@@ -14,9 +16,12 @@ public class Room {
     private String name;
     private int numOfRows;
     private int numOfSeats;
-    private ArrayList<ArrayList<Seat>> seats;
-    private ArrayList<Show> shows;
+    private List<List<Seat>> seats;
+    private List<Time> times;
 
+    /*When a room is created for the first time the times array will be empty and it will
+     *only be filled when the room is copied inside a show.
+     */
 
     /**
      * Constructs an empty Room object.
@@ -43,14 +48,14 @@ public class Room {
         this.numOfRows = room.numOfRows;
         this.numOfSeats = room.numOfSeats;
         this.seats = new ArrayList<>();
-        for (ArrayList<Seat> list : room.seats) {
+        this.times = new ArrayList<>();
+        for (List<Seat> list : room.seats) { //might break (oops)!
             ArrayList<Seat> tempList = new ArrayList<>();
             for (Seat seat : list) {
                 tempList.add(new Seat(seat));
             }
             this.seats.add(tempList);
         }
-        this.shows = room.shows; //a reference to the original because there is no need to change for each room
     }
 
     /**
@@ -91,25 +96,6 @@ public class Room {
     }
 
     /**
-     * Adds a show to the array.
-     * @param show Show to be added.
-     */
-    public void addShow(Show show) {
-    }
-
-    /**
-     * Removes a show from the array based on the name.
-     * @param name Name of the show to be removed.
-     */
-    public void removeShow(String name){
-        for (Show show : shows) {
-            if (show.getName().equals(name)){
-                shows.remove(show);
-            }
-        }
-    }
-
-    /**
      * Reserves a seat with the given code.
      * @param code Seat code.
      */
@@ -127,9 +113,5 @@ public class Room {
      */
     public String getName() {
         return name;
-    }
-
-    public ArrayList<Show> getShows() {
-        return shows;
     }
 }

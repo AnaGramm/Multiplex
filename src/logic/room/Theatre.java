@@ -39,16 +39,6 @@ public class Theatre extends Room {
      * @param balcony The balcony to be added.
      */
     public void addBalcony(Balcony balcony){
-        //TODO cide
-    }
-
-    /**
-     * Adds a copy of a show to the array.
-     * @param show Show to be added.
-     */
-    @Override
-    public void addShow(Show show){
-        Theatrical tmp = new Theatrical((Theatrical) show);
-        this.getShows().add(tmp);
+        //TODO code
     }
 }

@@ -1,6 +1,10 @@
 package logic.show;
 
 
+import logic.room.Cine;
+import logic.room.Room;
+import logic.room.Theatre;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +19,13 @@ public class Show {
     private String description;
     private String director;
     private List<String> actors;
-    private List<Time> times;
+    private List<Room> rooms;
 
     /**Constructs an empty show object. Initializes the structure in witch the actors are stored.
      */
     public Show(){
         actors = new ArrayList<>();
-        times = new ArrayList<>();
+        rooms = new ArrayList<>();
     }
 
     /**
@@ -36,7 +40,7 @@ public class Show {
         this.description = description;
         this.director = director;
         actors = new ArrayList<String>();
-        times = new ArrayList<>();
+        rooms = new ArrayList<>();
     }
 
     /**
@@ -51,11 +55,21 @@ public class Show {
         for (String actor : show.actors) {
             this.actors.add(actor);
         }
-        this.times = show.times; //a reference to the original because there is no need to change for each show
+        this.rooms = show.rooms; //a reference to the original because there is no need to change for each show
     }
 
-    public void addTime(Time time){
-        times.add(time);
+    /**
+     * Adds a copy of a room in the array.
+     * @param room Room to be copied.
+     */
+    public void addRoom(Room room){
+        if (room instanceof Cine){
+            Cine tmp = new Cine((Cine) room);
+            rooms.add(tmp);
+        }else{
+            Theatre tmp = new Theatre((Theatre) room);
+            rooms.add(tmp);
+        }
     }
 
     /**

@@ -43,6 +43,6 @@ public class Cine extends Room{
     @Override
     public void addShow(Show show){
         Movie tmp = new Movie((Movie) show);
-        this.getShows().add(tmp);
+        this.getTimes().add(tmp);
     }
 }
