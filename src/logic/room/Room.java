@@ -114,4 +114,8 @@ public class Room {
     public String getName() {
         return name;
     }
+
+    public void addTime(Time time){
+        times.add(time);
+    }
 }

@@ -40,7 +40,6 @@ public class Show {
         this.description = description;
         this.director = director;
         actors = new ArrayList<String>();
-        rooms = new ArrayList<>();
     }
 
     /**
@@ -52,10 +51,10 @@ public class Show {
         this.director = show.director;
         this.description = show.description;
         this.actors = new ArrayList<>();
+        rooms = new ArrayList<>();
         for (String actor : show.actors) {
             this.actors.add(actor);
         }
-        this.rooms = show.rooms; //a reference to the original because there is no need to change for each show
     }
 
     /**

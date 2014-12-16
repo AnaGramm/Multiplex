@@ -16,9 +16,6 @@ import java.util.ArrayList;
  * @see logic.program.PTSD
  */
 public class Day {
-    private enum Days {
-        SUNDAY, MONDAY, TUESDAY, WETNESDAY, THURSDAY, FRIDAY, SATURDAY
-    }
     private ArrayList<Movie> movies;
     private ArrayList<Theatrical> theatricals;
     private Days day;
@@ -41,16 +38,46 @@ public class Day {
 
     /**
      * Adds a copy of a show in the structure.
-     * @param show Show to be added.
      */
-    public void addShow(Show show){
+    public boolean addShow(Show show){
         if (show instanceof Movie){
-            Movie tmp = new Movie((Movie) show);
-            movies.add(tmp);
+            if (showExists(show)){
+                return false;
+            }else {
+                Movie tmp = new Movie((Movie) show);
+                movies.add(tmp);
+            }
         }else{
-            Theatrical tmp = new Theatrical((Theatrical) show);
-            theatricals.add(tmp);
+            if (showExists(show)){
+                return false;
+            }else {
+                Theatrical tmp = new Theatrical((Theatrical) show);
+                theatricals.add(tmp);
+            }
         }
+        return true;
+    }
+
+    /**
+     * Stuff
+     * @param show
+     * @return
+     */
+    private boolean showExists(Show show){
+        if (show instanceof Movie) {
+            for (Movie movie : movies) {
+                if (movie.getName().equals(show.getName())) {
+                    return true;
+                }
+            }
+        }else{
+            for (Theatrical theatrical : theatricals) {
+                if (theatrical.getName().equals(show.getName())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**

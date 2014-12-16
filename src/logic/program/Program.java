@@ -17,7 +17,6 @@ import java.util.Map;
  * @author gramanas
  */
 public class Program {
-    private Map<Day,List<Map<Room,List<Map<Show,List<Time>>>>>> program; //NOT!
     private Day[] days;
 
     /**
@@ -29,6 +28,11 @@ public class Program {
         for (int i = 0; i < 7; i++) {
             days[i] = new Day();
         }
+    }
+
+    public void addShow(Show show, String dei){
+        Days tmp = Days.valueOf(dei);
+        days[tmp.ordinal()].addShow(show);
     }
 
     /**
