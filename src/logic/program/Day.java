@@ -3,8 +3,13 @@ package logic.program;
 import logic.room.Cine;
 import logic.room.Room;
 import logic.room.Theatre;
+import logic.show.Movie;
+import logic.show.Show;
+import logic.show.Theatrical;
 
 import java.util.ArrayList;
+
+//TODO CHANGE GREEN TEXT!
 
 /**
  * This is a wrapper class to pack the rooms in a nice way for them to be printed later.
@@ -17,16 +22,16 @@ public class Day {
     private enum Days {
         SUNDAY, MONDAY, TUESDAY, WETNESDAY, THURSDAY, FRIDAY, SATURDAY
     }
-    private ArrayList<Cine> movieTheatres;
-    private ArrayList<Theatre> theatres;
+    private ArrayList<Movie> movies;
+    private ArrayList<Theatrical> theatricals;
     private Days day;
 
     /**
      * Constructor. Init the arrays.
      */
     public Day(){
-        movieTheatres = new ArrayList<>();
-        theatres = new ArrayList<>();
+        movies = new ArrayList<>();
+        theatricals = new ArrayList<>();
     }
 
     /**
@@ -38,37 +43,35 @@ public class Day {
     }
 
     /**
-     * Adds a copy of a room in the structure.
-     * @param room Room to be added.
+     * Adds a copy of a show in the structure.
+     * @param show Show to be added.
      */
-    public void addRoom(Room room){
-        if (room instanceof Cine){
-            Cine tmp = new Cine((Cine) room);
-            movieTheatres.add(tmp);
+    public void addShow(Show show){
+        if (show instanceof Movie){
+            Movie tmp = new Movie((Movie) show);
+            movies.add(tmp);
         }else{
-            Theatre tmp = new Theatre((Theatre) room);
-            theatres.add(tmp);
+            Theatrical tmp = new Theatrical((Theatrical) show);
+            theatricals.add(tmp);
         }
     }
 
     /**
-     * Deletes a room with the given name.
-     * @param name Name of the room to be deleted.
+     * Deletes a show with the given name.
+     * @param name Name of the show to be deleted.
      */
-    public boolean deleteRoom(String name){
-        for (Cine movieTheatre : movieTheatres) {
-            if(movieTheatre.getName().equals(name)){
-                movieTheatres.remove(movieTheatre);
-                return true;
+    public boolean deleteShow(String name){
+        for (Movie movie : movies) {
+            if(movie.getName().equals(name)){
+                movies.remove(movie);
             }
         }
-        for (Theatre theatre : theatres) {
-            if(theatre.getName().equals(name)){
-                theatres.remove(theatre);
-                return true;
+        for (Theatrical theatrical : theatricals) {
+            if(theatrical.getName().equals(name)){
+                theatricals.remove(theatrical);
             }
         }
-        System.err.println("Could not remove room, name does not exist.");
+        System.err.println("Could not remove show, name does not exist.");
         return false;
     }
 }
