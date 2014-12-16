@@ -1,8 +1,5 @@
 package logic.program;
 
-import logic.room.Cine;
-import logic.room.Room;
-import logic.room.Theatre;
 import logic.show.Movie;
 import logic.show.Show;
 import logic.show.Theatrical;
