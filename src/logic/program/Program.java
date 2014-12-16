@@ -1,7 +1,9 @@
 package logic.program;
 
 
+import logic.room.Cine;
 import logic.room.Room;
+import logic.show.Movie;
 import logic.show.Show;
 import logic.show.Time;
 
@@ -31,8 +33,17 @@ public class Program {
     }
 
     public void addShow(Show show, String dei){
-        Days tmp = Days.valueOf(dei);
-        days[tmp.ordinal()].addShow(show);
+        Days day = Days.valueOf(dei);
+        days[day.ordinal()].addShow(show);
+    }
+    
+    public void addRoom(String showName, String dei, Room room){
+        Days day = Days.valueOf(dei);
+        if (room instanceof Cine){
+            for (Movie movie : days[day.ordinal()].getMovies()) {
+                
+            }
+        }
     }
 
     /**

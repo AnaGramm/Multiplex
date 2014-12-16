@@ -98,4 +98,8 @@ public class Day {
         System.err.println("Could not remove show, name does not exist.");
         return false;
     }
+
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
 }

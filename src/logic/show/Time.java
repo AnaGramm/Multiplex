@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+//TODO must add limits 23 and 59 for hours and mins...
 /**
  * This class represents time and it packs the methods that control it
  * depending on the needs of the admin.
@@ -66,7 +67,17 @@ public class Time {
 
     //TODO delete this!!
     public static void main(String[] args) {
-        Time time = Time.getCurrentTime();
-        System.out.println(time);
+        Time time1 = Time.getCurrentTime();
+        Time time2 = new Time(20,30);
+        System.out.println(time1);
+        System.out.println(time1.equals(time2));
+        System.out.println(time2);
+    }
+
+    public boolean equals(Time time){
+        if (this.hour == time.hour && this.min == time.min){
+            return true;
+        }
+        return false;
     }
 }

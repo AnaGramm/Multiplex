@@ -35,14 +35,4 @@ public class Cine extends Room{
     public Cine(){
         screen = new Screen();
     }
-
-    /**
-     * Adds a copy of a show to the array.
-     * @param show Show to be added.
-     */
-    @Override
-    public void addShow(Show show){
-        Movie tmp = new Movie((Movie) show);
-        this.getTimes().add(tmp);
-    }
 }
