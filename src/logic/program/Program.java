@@ -10,6 +10,7 @@ import logic.show.Time;
 import java.util.List;
 import java.util.Map;
 
+//TODO USE SETS INSTEAD OF ARRAY LISTS!!!!!!!!!!!!!!!!!!!!!!!!
 
 /**
  * This class implements and manages the program of movies and theatricals in the multiplex.
@@ -34,14 +35,20 @@ public class Program {
 
     public void addShow(Show show, String dei){
         Days day = Days.valueOf(dei);
-        days[day.ordinal()].addShow(show);
+        int d = day.ordinal();
+        days[d].addShow(show);
     }
     
     public void addRoom(String showName, String dei, Room room){
         Days day = Days.valueOf(dei);
+        int d = day.ordinal();
         if (room instanceof Cine){
-            for (Movie movie : days[day.ordinal()].getMovies()) {
-                
+            for (Movie movie : days[d].getMovies()) { //iter the shows of that day
+                if (movie.getName().equals(showName)){ //see if there is a show with tha correct name
+                    for (Room room1 : movie.getRooms()) { //iter the rooms of the given show
+                        if (room1.getName().equals(room.getName())) //adsasdasd
+                    }
+                }
             }
         }
     }

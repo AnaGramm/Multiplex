@@ -103,4 +103,8 @@ public class Show {
     public String getName() {
         return name;
     }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
 }
