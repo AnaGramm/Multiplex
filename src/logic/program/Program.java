@@ -36,7 +36,11 @@ public class Program {
     public void addShow(Show show, String dei){
         Days day = Days.valueOf(dei);
         int d = day.ordinal();
-        days[d].addShow(show);
+        for (Show show1 : days[d].getShows()) {
+            if (!show1.getName().equals(show.getName())){
+                days[d].addShow(show);
+            }
+        }
     }
     
     public void addRoom(String showName, String dei, Room room){
