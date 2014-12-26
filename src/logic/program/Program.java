@@ -46,7 +46,9 @@ public class Program {
             for (Movie movie : days[d].getMovies()) { //iter the shows of that day
                 if (movie.getName().equals(showName)){ //see if there is a show with tha correct name
                     for (Room room1 : movie.getRooms()) { //iter the rooms of the given show
-                        if (room1.getName().equals(room.getName())) //adsasdasd
+                        if (room1.getName().equals(room.getName())) { //see if there is a room with the same name
+                            movie.addRoom(room);
+                        }
                     }
                 }
             }
