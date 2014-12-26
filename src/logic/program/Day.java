@@ -16,16 +16,14 @@ import java.util.ArrayList;
  * @see logic.program.PTSD
  */
 public class Day {
-    private ArrayList<Movie> movies;
-    private ArrayList<Theatrical> theatricals;
+    private ArrayList<Show> shows;
     private Days day;
 
     /**
      * Constructor. Init the arrays.
      */
     public Day(){
-        movies = new ArrayList<>();
-        theatricals = new ArrayList<>();
+        shows = new ArrayList<>();
     }
 
     /**
@@ -45,14 +43,14 @@ public class Day {
                 return false;
             }else {
                 Movie tmp = new Movie((Movie) show);
-                movies.add(tmp);
+                shows.add(tmp);
             }
         }else{
             if (showExists(show)){
                 return false;
             }else {
                 Theatrical tmp = new Theatrical((Theatrical) show);
-                theatricals.add(tmp);
+                shows.add(tmp);
             }
         }
         return true;
@@ -64,17 +62,9 @@ public class Day {
      * @return
      */
     private boolean showExists(Show show){
-        if (show instanceof Movie) {
-            for (Movie movie : movies) {
-                if (movie.getName().equals(show.getName())) {
-                    return true;
-                }
-            }
-        }else{
-            for (Theatrical theatrical : theatricals) {
-                if (theatrical.getName().equals(show.getName())) {
-                    return true;
-                }
+        for (Show show1 : shows) {
+            if (show1.getName().equals(show.getName())){
+                return true;
             }
         }
         return false;
@@ -85,21 +75,17 @@ public class Day {
      * @param name Name of the show to be deleted.
      */
     public boolean deleteShow(String name){
-        for (Movie movie : movies) {
-            if(movie.getName().equals(name)){
-                movies.remove(movie);
-            }
-        }
-        for (Theatrical theatrical : theatricals) {
-            if(theatrical.getName().equals(name)){
-                theatricals.remove(theatrical);
+        for (Show show : shows) {
+            if(show.getName().equals(name)){
+                shows.remove(show);
+                return true;
             }
         }
         System.err.println("Could not remove show, name does not exist.");
         return false;
     }
 
-    public ArrayList<Movie> getMovies() {
-        return movies;
+    public ArrayList<Show> getShows() {
+        return shows;
     }
 }

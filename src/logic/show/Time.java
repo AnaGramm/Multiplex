@@ -74,7 +74,9 @@ public class Time {
         System.out.println(time2);
     }
 
-    public boolean equals(Time time){
+    @Override
+    public boolean equals(Object o){
+        Time time = (Time) o;
         if (this.hour == time.hour && this.min == time.min){
             return true;
         }

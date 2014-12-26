@@ -26,7 +26,9 @@ public class Room {
     /**
      * Constructs an empty Room object.
      */
-    public Room(){}
+    public Room(){
+        this.seats = new ArrayList<>();
+    }
 
     /**
      * Constructs a room with the given name.
@@ -117,5 +119,9 @@ public class Room {
 
     public void addTime(Time time){
         times.add(time);
+    }
+
+    public List<Time> getTime() {
+        return times;
     }
 }

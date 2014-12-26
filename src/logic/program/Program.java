@@ -42,12 +42,28 @@ public class Program {
     public void addRoom(String showName, String dei, Room room){
         Days day = Days.valueOf(dei);
         int d = day.ordinal();
-        if (room instanceof Cine){
-            for (Movie movie : days[d].getMovies()) { //iter the shows of that day
-                if (movie.getName().equals(showName)){ //see if there is a show with tha correct name
-                    for (Room room1 : movie.getRooms()) { //iter the rooms of the given show
-                        if (room1.getName().equals(room.getName())) { //see if there is a room with the same name
-                            movie.addRoom(room);
+        for (Show show : days[d].getShows()) { //iter the shows of that day
+            if (!show.getName().equals(showName)){ //see if there is a show with tha correct name
+                for (Room room1 : show.getRooms()) { //iter the rooms of the given show
+                    if (!room1.getName().equals(room.getName())) { //see if there is a room with the same name
+                        show.addRoom(room);
+                    }
+                }
+            }
+        }
+    }
+
+    public void addTime(String showName, String dei, String roomName, Time time){
+        Days day = Days.valueOf(dei);
+        int d = day.ordinal();
+        for (Show show : days[d].getShows()) { //iter the show array
+            if (!show.getName().equals(showName)){ //see if there is a show with tha correct name
+                for (Room room : show.getRooms()) { //iter the rooms of the given show
+                    if (!room.getName().equals(roomName)) { //see if there is a room with the same name
+                        for (Time time1 : room.getTime()) { //iter the time array
+                            if (!time1.equals(time)){ //see if there is a show for this time already there
+                                room.addTime(time);
+                            }
                         }
                     }
                 }
@@ -62,24 +78,6 @@ public class Program {
      * @param show Search key.
      */
     public void searchMovie(Show show) {
-        //TODO code
-    }
-
-    /**
-     * Adds a show to the proper array.
-     *
-     * @param ptsd Place, Time, Show.
-     */
-    public void addShow(PTSD ptsd) {
-        //TODO code
-    }
-
-    /**
-     * Removes a show from the proper array
-     *
-     * @param ptsd The show to be removed.
-     */
-    public void removeShow(PTSD ptsd) {
         //TODO code
     }
 }
