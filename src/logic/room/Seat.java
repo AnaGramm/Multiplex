@@ -85,4 +85,8 @@ public class Seat {
     public void unreserve(){
         avaliable = true;
     }
+
+    public String getCode() {
+        return code;
+    }
 }

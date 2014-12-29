@@ -59,7 +59,8 @@ public class AdminMain extends JFrame {
         jButton1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                AdminTest.run();
+                JOptionPane.showMessageDialog(null, "Movie",
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
             }
 
         });
